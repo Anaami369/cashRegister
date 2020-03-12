@@ -52,7 +52,7 @@
             this.changeText = new System.Windows.Forms.Label();
             this.scroll = new System.Windows.Forms.Label();
             this.totalText = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tenderedBox = new System.Windows.Forms.TextBox();
             this.newOrderButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -279,14 +279,14 @@
             this.totalText.Size = new System.Drawing.Size(177, 23);
             this.totalText.TabIndex = 29;
             // 
-            // textBox1
+            // tenderedBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(185, 310);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(86, 20);
-            this.textBox1.TabIndex = 30;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.tenderedBox.Location = new System.Drawing.Point(185, 310);
+            this.tenderedBox.Multiline = true;
+            this.tenderedBox.Name = "tenderedBox";
+            this.tenderedBox.Size = new System.Drawing.Size(86, 20);
+            this.tenderedBox.TabIndex = 30;
+            this.tenderedBox.TextChanged += new System.EventHandler(this.TenderedBox_TextChanged);
             // 
             // newOrderButton
             // 
@@ -308,7 +308,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.newOrderButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tenderedBox);
             this.Controls.Add(this.totalText);
             this.Controls.Add(this.scroll);
             this.Controls.Add(this.changeText);
@@ -335,7 +335,7 @@
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "tenderedText";
-            this.Text = "Form1";
+            this.Text = "Anaami\'s Wizard Bank";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -366,7 +366,7 @@
         private System.Windows.Forms.Label changeText;
         private System.Windows.Forms.Label scroll;
         private System.Windows.Forms.Label totalText;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tenderedBox;
         private System.Windows.Forms.Button newOrderButton;
     }
 }

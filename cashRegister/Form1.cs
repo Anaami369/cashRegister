@@ -45,6 +45,8 @@ namespace cashRegister
 
         private void SchoolRobesText_TextChanged(object sender, EventArgs e)
         {
+            //Change the format of the text to int
+            //calculate total of item
             try
             {
                 robes = Convert.ToInt16(schoolRobesText.Text);
@@ -54,11 +56,14 @@ namespace cashRegister
             catch
             {
                 subTotalText.Text = "Must enter an int";
+                return;
             }
         }
 
         private void MaraudersMapText_TextChanged(object sender, EventArgs e)
         {
+            //Change the format of the text to int
+            //calculate total of item
             try
             {
                 map = Convert.ToInt16(maraudersMapText.Text);
@@ -68,11 +73,14 @@ namespace cashRegister
             catch
             {
                 subTotalText.Text = "Must enter an int";
+                return;
             }
         }
 
         private void CauldronText_TextChanged(object sender, EventArgs e)
         {
+            //Change the format of the text to int
+            //calculate total of item
             try
             {
                 cauldron = Convert.ToInt16(cauldronText.Text);
@@ -82,11 +90,14 @@ namespace cashRegister
             catch
             {
                 subTotalText.Text = "Must enter an int";
+                return;
             }
         }
 
         private void WandText_TextChanged(object sender, EventArgs e)
         {
+            //Change the format of the text to int
+            //calculate total of item
             try
             {
                 wand = Convert.ToInt16(wandText.Text);
@@ -96,11 +107,13 @@ namespace cashRegister
             catch
             {
                 subTotalText.Text = "Must enter an int";
+                return;
             }
         }
 
         private void CalculateTotal_Click(object sender, EventArgs e)
         {
+            //Calculate subtotal, tax, and total
             subTotal = robesCost * robes + mapCost * map + cauldronCost * cauldron + wandCost * wand;
             tax = 0.13 * subTotal;
             totalPrice = subTotal + tax;
@@ -110,36 +123,39 @@ namespace cashRegister
             totalText.Text = totalPrice.ToString("C");
         }
 
-        private void TextBox1_TextChanged(object sender, EventArgs e)
+        private void TenderedBox_TextChanged(object sender, EventArgs e)
         {
-            try
             {
-                tendered = Convert.ToInt16(textBox1.Text);
+                //Change the format of the text to int
+                //calculate total of item
+                try
+                {
+                    tendered = Convert.ToInt16(tenderedBox.Text);
 
-                change = tendered - totalPrice;
-            }
-            catch
-            {
-                subTotalText.Text = "Must enter an int";
-            }
+                    change = tendered - totalPrice;
+                }
+                catch
+                {
+                    subTotalText.Text = "Must enter an int";
+                    return;
+                }
 
+            }
         }
 
         private void CalculateChange_Click(object sender, EventArgs e)
         {
+            //calculate change and change text to string
             change = tendered - totalPrice;
             changeText.Text = change.ToString("C");
         }
 
         private void PrintReciept_Click(object sender, EventArgs e)
         {
-
+            //make scroll visible
             scroll.Visible = true;
 
-
-
-
-
+            //print receipt and make printing sound
             SoundPlayer printing = new SoundPlayer(Properties.Resources.printer);
             printing.Play();
 
@@ -157,21 +173,18 @@ namespace cashRegister
             Refresh();
             Thread.Sleep(500);
 
-
-
-
             printing.Play();
-            scroll.Text += "\nSchool robes * " + robes + " @ " + robesCost;
+            scroll.Text += "\nSchool robes *           " + robes + " @ " + robesCost;
             Refresh();
             Thread.Sleep(500);
 
             printing.Play();
-            scroll.Text += "\nMaurader's map * " + map + " @ " + mapCost;
+            scroll.Text += "\nMaurader's map *        " + map + " @ " + mapCost;
             Refresh();
             Thread.Sleep(500);
 
             printing.Play();
-            scroll.Text += "\nCauldron * " + cauldron + " @ " + cauldronCost;
+            scroll.Text += "\nCauldron *                " + cauldron + " @ " + cauldronCost;
             Refresh();
             Thread.Sleep(500);
 
@@ -180,31 +193,33 @@ namespace cashRegister
             Refresh();
             Thread.Sleep(500);
 
-
-
-
             printing.Play();
-            scroll.Text += "\nSubtotal " + subTotal.ToString("C");
+            scroll.Text += "\nSubtotal  " + subTotal.ToString("C");
             Refresh();
             Thread.Sleep(500);
 
             printing.Play();
-            scroll.Text += "\nTax " + tax.ToString("C");
+            scroll.Text += "\nTax       " + tax.ToString("C");
             Refresh();
             Thread.Sleep(500);
 
             printing.Play();
-            scroll.Text += "\nTotal " + totalPrice.ToString("C");
+            scroll.Text += "\nTotal     " + totalPrice.ToString("C");
             Refresh();
             Thread.Sleep(500);
 
             printing.Play();
-            scroll.Text += "\n Tendered " + tendered.ToString("C");
+            scroll.Text += "\nTendered  " + tendered.ToString("C");
             Refresh();
             Thread.Sleep(500);
 
             printing.Play();
-            scroll.Text += "\n Change " + change.ToString("C");
+            scroll.Text += "\nChange    " + change.ToString("C");
+            Refresh();
+            Thread.Sleep(500);
+
+            printing.Play();
+            scroll.Text += "\nHAVE A NICE DAY!!!:)";
             Refresh();
             Thread.Sleep(500);
 
@@ -213,8 +228,10 @@ namespace cashRegister
 
         private void NewOrderButton_Click(object sender, EventArgs e)
         {
+            //make scroll invisible
             scroll.Visible = false;
 
+            //Empty all values for a new order
             schoolRobesText.Text = String.Empty;
             maraudersMapText.Text = String.Empty;
             cauldronText.Text = String.Empty;
@@ -222,10 +239,9 @@ namespace cashRegister
             subTotalText.Text = String.Empty;
             taxText.Text = String.Empty;
             totalText.Text = String.Empty;
-            textBox1.Text = String.Empty;
+            tenderedBox.Text = String.Empty;
             changeText.Text = String.Empty;
             scroll.Text = String.Empty;
-
 
             totalRobes = 0;
             totalMap = 0;
